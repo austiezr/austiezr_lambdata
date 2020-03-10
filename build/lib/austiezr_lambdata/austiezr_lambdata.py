@@ -11,6 +11,7 @@ class TransformDF:
 
     @staticmethod
     def date_split(df, date_col):
+        """takes date column, converts to DateTime, splits into relevant columns"""
         df[date_col] = pd.to_datetime(df[date_col], infer_datetime_format=True, errors='raise')
         df['year'] = df[date_col].dt.year
         df['month'] = df[date_col].dt.month
@@ -21,18 +22,26 @@ class TransformDF:
 
     @staticmethod
     def add_to_df(new_list, df):
+        """converts list to series and creates new column containing series"""
         new_list = pd.Series(new_list)
         df['new_column'] = new_list
         return df
 
 
 class MVP:
-    """Base class for quickly producing Minimum Viable Product for EDA and Baselines"""
+    """
+    Base class for quickly producing Minimum Viable Product for EDA and Baselines
+    Expects a predictive model
+    """
     def __init__(self, model):
         self.model = model
 
     def fastFirst(self, df, target):
-
+        """
+        Quick method for producing baseline results
+        returns baseline, splits data, fits basic encoder/imputer/model, returns scores
+        expects dataframe and target, inherits model
+        """
         try:
             mean = round(np.mean(df[target]))
             base = len(df[df[target] == mean])/len(df)
