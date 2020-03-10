@@ -4,6 +4,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_error as mae
 
 
 class TransformDF:
@@ -42,18 +43,6 @@ class MVP:
         returns baseline, splits data, fits basic encoder/imputer/model, returns scores
         expects dataframe and target, inherits model
         """
-        try:
-            mean = round(np.mean(df[target]))
-            base = len(df[df[target] == mean])/len(df)
-            print(f'Baseline: {base:.2%}\n')
-        except TypeError:
-            print(f'Baseline:\n{df[target].value_counts(normalize=True)}\n')
-
-        pipe = make_pipeline(
-            OneHotEncoder(handle_unknown='ignore'),
-            SimpleImputer(),
-            self.model
-        )
 
         train, test = train_test_split(df, train_size=0.80, test_size=0.20, random_state=33)
 
@@ -63,7 +52,23 @@ class MVP:
         X_test = test.drop(columns=[target])
         y_test = test[target]
 
+        pipe = make_pipeline(
+            OneHotEncoder(handle_unknown='ignore'),
+            SimpleImputer(),
+            self.model
+        )
+
         pipe.fit(X=X_train, y=y_train)
 
-        print(f'\nTraining Score: {pipe.score(X_train, y_train)}\n')
-        print(f'Test Score: {pipe.score(X_test, y_test)}\n')
+        try:
+            mean = round(np.mean(df[target]))
+            y_pred = df.copy()
+            y_pred[target] = mean
+            y_pred = y_pred[target]
+            print(f'Baseline MAE: {mae(df[target], y_pred)}\n')
+            print(f'Training MAE: {mae(y_train, pipe.pred(X_train))}\n')
+            print(f'Test MAE: {mae(y_test, pipe.pred(X_test))}\n')
+        except TypeError:
+            print(f'Baseline Accuracy:\n{df[target].value_counts(normalize=True)}\n')
+            print(f'\nTraining Accuracy: {pipe.score(X_train, y_train)}\n')
+            print(f'Test Accuracy: {pipe.score(X_test, y_test)}\n')

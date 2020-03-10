@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="austiezr_lambdata", # Replace with your own username
-    version="0.2.1",
+    version="0.2.2",
     author="Example Author",
     author_email="author@example.com",
     description="A small example package",
