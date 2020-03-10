@@ -34,8 +34,8 @@ class MVP:
     def fastFirst(self, df, target):
 
         try:
-            mean = np.mean(df[target], 0)
-            base = len(df[df['G1']==mean])/len(df)
+            mean = np.mean(df[target])
+            base = len(df[df[target] == mean])/len(df)
             print(f'Baseline: {base:.2%}\n')
         except TypeError:
             print(f'Baseline:\n{df[target].value_counts(normalize=True)}\n')
