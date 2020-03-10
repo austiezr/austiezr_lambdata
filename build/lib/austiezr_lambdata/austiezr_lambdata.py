@@ -66,8 +66,8 @@ class MVP:
             y_pred[target] = mean
             y_pred = y_pred[target]
             print(f'Baseline MAE: {mae(df[target], y_pred)}\n')
-            print(f'Training MAE: {mae(y_train, pipe.pred(X_train))}\n')
-            print(f'Test MAE: {mae(y_test, pipe.pred(X_test))}\n')
+            print(f'Training MAE: {mae(y_train, pipe.predict(X_train))}\n')
+            print(f'Test MAE: {mae(y_test, pipe.predict(X_test))}\n')
         except TypeError:
             print(f'Baseline Accuracy:\n{df[target].value_counts(normalize=True)}\n')
             print(f'\nTraining Accuracy: {pipe.score(X_train, y_train)}\n')
