@@ -1,0 +1,8 @@
+README.md
+setup.py
+austiezr_lambdata/__init__.py
+austiezr_lambdata/austiezr_lambdata.py
+austiezr_lambdata.egg-info/PKG-INFO
+austiezr_lambdata.egg-info/SOURCES.txt
+austiezr_lambdata.egg-info/dependency_links.txt
+austiezr_lambdata.egg-info/top_level.txt
