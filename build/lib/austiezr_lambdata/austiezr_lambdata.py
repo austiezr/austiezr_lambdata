@@ -34,7 +34,7 @@ class MVP:
     def fastFirst(self, df, target):
 
         try:
-            mean = np.mean(df[target])
+            mean = round(np.mean(df[target]))
             base = len(df[df[target] == mean])/len(df)
             print(f'Baseline: {base:.2%}\n')
         except TypeError:
