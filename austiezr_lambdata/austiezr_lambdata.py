@@ -40,7 +40,8 @@ class MVP:
     def fastFirst(self, df, target):
         """
         Quick method for producing baseline results
-        returns baseline, splits data, fits basic encoder/imputer/model, returns scores
+        returns baseline, splits data, fits basic encoder/imputer/model
+        returns accuracy for classification, MAE for regression
         expects dataframe and target, inherits model
         """
 
