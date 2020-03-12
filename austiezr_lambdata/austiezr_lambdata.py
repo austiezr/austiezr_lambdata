@@ -63,6 +63,7 @@ class MVP:
 
         try:
             mean = round(np.mean(df[target]))
+            mae(y_train, pipe.predict(x_train))
             y_pred = df.copy()
             y_pred[target] = mean
             y_pred = y_pred[target]
