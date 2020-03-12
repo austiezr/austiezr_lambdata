@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module austiezr_lambdata</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>austiezr_lambdata</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/austie/PycharmProjects/austiezr_lambdata/austiezr_lambdata/austiezr_lambdata.py">/Users/austie/PycharmProjects/austiezr_lambdata/austiezr_lambdata/austiezr_lambdata.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="pandas.html">pandas</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="austiezr_lambdata.html#MVP">MVP</a>
+</font></dt><dt><font face="helvetica, arial"><a href="austiezr_lambdata.html#TransformDF">TransformDF</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MVP">class <strong>MVP</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#MVP">MVP</a>(model)<br>
+&nbsp;<br>
+Base&nbsp;class&nbsp;for&nbsp;quickly&nbsp;producing&nbsp;Minimum&nbsp;Viable&nbsp;Product&nbsp;for&nbsp;EDA&nbsp;and&nbsp;Baselines<br>
+Expects&nbsp;a&nbsp;predictive&nbsp;model<br>
+&nbsp;<br>
+Methods&nbsp;available:<br>
+&nbsp;<br>
+fast_first&nbsp;-&nbsp;quick&nbsp;EDA&nbsp;tool<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="MVP-__init__"><strong>__init__</strong></a>(self, model)</dt><dd><tt>requires&nbsp;a&nbsp;predictive&nbsp;model&nbsp;at&nbsp;construction.</tt></dd></dl>
+
+<dl><dt><a name="MVP-fast_first"><strong>fast_first</strong></a>(self, df, target)</dt><dd><tt>Quick&nbsp;method&nbsp;for&nbsp;producing&nbsp;baseline&nbsp;results.<br>
+return&nbsp;baseline,&nbsp;split&nbsp;data,&nbsp;fit&nbsp;basic&nbsp;encoder/imputer/model<br>
+return&nbsp;accuracy&nbsp;for&nbsp;classification,&nbsp;MAE&nbsp;for&nbsp;regression<br>
+&nbsp;<br>
+Keyword&nbsp;arguments:<br>
+&nbsp;<br>
+df&nbsp;--&nbsp;data&nbsp;frame&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;modeling<br>
+target&nbsp;--&nbsp;str&nbsp;title&nbsp;of&nbsp;column&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;target</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="TransformDF">class <strong>TransformDF</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>base&nbsp;class&nbsp;for&nbsp;all&nbsp;df&nbsp;transformations.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Static methods defined here:<br>
+<dl><dt><a name="TransformDF-add_to_df"><strong>add_to_df</strong></a>(new_list, df)</dt><dd><tt>convert&nbsp;list&nbsp;to&nbsp;series&nbsp;and&nbsp;create&nbsp;new&nbsp;column&nbsp;containing&nbsp;series.</tt></dd></dl>
+
+<dl><dt><a name="TransformDF-date_split"><strong>date_split</strong></a>(df, date_col)</dt><dd><tt>take&nbsp;date&nbsp;column,&nbsp;convert&nbsp;to&nbsp;DateTime,&nbsp;split&nbsp;into&nbsp;relevant&nbsp;columns,&nbsp;return&nbsp;data&nbsp;frame.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
