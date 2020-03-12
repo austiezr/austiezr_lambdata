@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef86fc15-e558-4c88-9f2d-b22b846551c0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/sample_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/austiezr_lambdata/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/austiezr_lambdata/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/austiezr_lambdata/austiezr_lambdata.py" beforeDir="false" afterPath="$PROJECT_DIR$/austiezr_lambdata/austiezr_lambdata.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,7 +39,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in test.py">
+  <component name="RunManager">
     <configuration name="austiezr_lambdata" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="austiezr_lambdata" />
       <option name="INTERPRETER_OPTIONS" value="" />

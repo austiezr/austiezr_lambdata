@@ -6,13 +6,22 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error as mae
 
+"""
+TransformDF:
+    date_split: handles date columns
+    add_to_df: appends columns
+
+MVP:
+    fast_first: quick results for EDA and baselines
+"""
+
 
 class TransformDF:
-    """base class for all df transformations"""
+    """base class for all df transformations."""
 
     @staticmethod
     def date_split(df, date_col):
-        """takes date column, converts to DateTime, splits into relevant columns"""
+        """take date column, convert to DateTime, split into relevant columns, return data frame."""
         df[date_col] = pd.to_datetime(df[date_col], infer_datetime_format=True, errors='raise')
         df['year'] = df[date_col].dt.year
         df['month'] = df[date_col].dt.month
@@ -23,7 +32,7 @@ class TransformDF:
 
     @staticmethod
     def add_to_df(new_list, df):
-        """converts list to series and creates new column containing series"""
+        """convert list to series and create new column containing series."""
         new_list = pd.Series(new_list)
         df['new_column'] = new_list
         return df
@@ -33,16 +42,26 @@ class MVP:
     """
     Base class for quickly producing Minimum Viable Product for EDA and Baselines
     Expects a predictive model
+
+    Methods available:
+
+    fast_first - quick EDA tool
     """
+
     def __init__(self, model):
+        """requires a predictive model at construction."""
         self.model = model
 
     def fast_first(self, df, target):
         """
-        Quick method for producing baseline results
-        returns baseline, splits data, fits basic encoder/imputer/model
-        returns accuracy for classification, MAE for regression
-        expects dataframe and target, inherits model
+        Quick method for producing baseline results.
+        return baseline, split data, fit basic encoder/imputer/model
+        return accuracy for classification, MAE for regression
+
+        Keyword arguments:
+
+        df -- data frame to be used for modeling
+        target -- str title of column to be used as target
         """
 
         train, test = train_test_split(df, train_size=0.80, test_size=0.20, random_state=33)
